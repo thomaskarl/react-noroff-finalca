@@ -1,0 +1,25 @@
+header {
+	min-height: 120px;
+	background-color: #eceae0;
+	margin-bottom: $space * 2;
+	display: flex;
+	justify-content: space-evenly;
+
+	.container-fluid {
+		display: flex;
+		align-items: center;
+
+		.main-menu {
+			display: flex;
+			justify-content: space-evenly;
+		}
+	}
+
+	li a {
+		color: $dark;
+
+		&:hover {
+			transform: scale(1.3);
+		}
+	}
+}

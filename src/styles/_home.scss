@@ -1,0 +1,105 @@
+/*
+ * Search
+*/
+
+.search {
+	max-width: 400px;
+	margin: 0 auto;
+
+	h2 {
+		margin-bottom: $space / 2;
+		text-align: center;
+	}
+}
+
+/*
+ * Flipper!
+*/
+
+.pers {
+	z-index: 1;
+	position: relative;
+	perspective: 100px;
+}
+
+.flip-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding-top: 50px;
+	padding-bottom: $space;
+	margin: 0 auto;
+	transform: translateX(0);
+	transition: all .3s ease;
+
+	.flip-container:hover .trigger {
+		transform: rotateY(180deg);
+	}
+
+	.flip-container {
+		@include flipsize;
+		perspective: 800px;
+		margin: $space / 2;
+		@media screen and (max-width: 480px) {
+			height: 100px;
+			width: 100px;
+		}
+
+		.trigger {
+			transition: 0.6s;
+			transform-style: preserve-3d;
+			position: relative;
+
+			.front, .back {
+				@include border;
+				@include flipsize;
+				@include center-flex;
+				transition: all 1s ease;
+				flex-direction: column;
+				backface-visibility: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				@media screen and (max-width: 480px) {
+					height: 100px;
+					width: 100px;
+				}
+
+				h2 {
+					@media screen and (max-width: 480px) {
+						font-size: 22px;
+					}
+				}
+
+				p {
+					@media screen and (max-width: 480px) {
+						font-size: 10px;
+						line-height: 12px;
+					}
+				}
+
+				h1, h6 {
+					position: absolute;
+					padding: 10px;
+				}
+
+				img {
+
+				}
+			}
+
+			.front {
+				z-index: 2;
+			}
+
+			.back {
+				@include drop-shadow;
+				padding: 10px;
+				background-color: $dark;
+				color: $text;
+				transform: rotateY(180deg);
+			}
+		}
+	}
+}

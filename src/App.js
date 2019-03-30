@@ -1,29 +1,30 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {Route, Switch, HashRouter} from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.css';
+import './App.scss';
 
-import Home from "./components/Home";
-import About from "./components/About";
-import Contact from "./components/Contact";
+
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 import Error from "./components/Error";
 import Navigation from "./components/Navigation";
+import CardSpecific from "./pages/CardSpecific"
 
 
 class App extends Component {
 	render() {
 		return (
-
-			<BrowserRouter>
-				<div>
-					<Navigation/>
-					<Switch>
-						<Route path="/" exact component={Home}/>
-						<Route path="/About" component={About}/>
-						<Route path="/Contact" component={Contact}/>
-						<Route component={Error}/>
-					</Switch>
-				</div>
-			</BrowserRouter>
-
+			<HashRouter>
+				<Navigation/>
+				<Switch>
+					<Route path="/" exact component={Home}/>
+					<Route path="/About" component={About}/>
+					<Route path="/Contact" component={Contact}/>
+					<Route path="/cardspecific/:id" component={CardSpecific}/>
+					<Route component={Error}/>
+				</Switch>
+			</HashRouter>
 		);
 	}
 }

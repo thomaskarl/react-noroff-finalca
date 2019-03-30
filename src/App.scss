@@ -1,6 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:300,400,600');
 @import "styles/reset.scss";
+@import "styles/mixins.scss";
+@import "styles/variables.scss";
 @import "styles/about.scss";
 @import "styles/contact.scss";
 @import "styles/error.scss";
 @import "styles/home.scss";
 @import "styles/navigation.scss";
+
+body {
+	font-family: 'Barlow Semi Condensed', sans-serif;
+}
