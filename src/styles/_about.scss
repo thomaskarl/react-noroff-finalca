@@ -1,0 +1,21 @@
+.about-container {
+	.about__content {
+		&--heading {
+			font-weight: bold;
+		}
+
+		&--text {
+			margin: $space 0;
+		}
+	}
+}
+
+.about {
+	margin-top: $space;
+	padding: $space;
+	border: 1px solid black;
+
+	&__showMore {
+		text-transform: uppercase;
+	}
+}

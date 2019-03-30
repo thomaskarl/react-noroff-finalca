@@ -4,10 +4,14 @@
 @import "styles/variables.scss";
 @import "styles/about.scss";
 @import "styles/contact.scss";
-@import "styles/error.scss";
 @import "styles/home.scss";
 @import "styles/navigation.scss";
 
 body {
 	font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+#root {
+	max-width: 800px;
+	margin: 0 auto;
 }
