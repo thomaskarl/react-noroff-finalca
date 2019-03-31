@@ -1,5 +1,6 @@
 import React from 'react';
 import CardSpecificComp from './../components/CardSpecificComp';
+import NavigationComp from "./../components/NavigationComp";
 
 export default class CardSpecific extends React.Component {
 
@@ -25,17 +26,20 @@ export default class CardSpecific extends React.Component {
 
 	render() {
 		return (
-			<div className={'row'}>
-				<div className={'col-sm-12'}>
-					<CardSpecificComp image={this.state.cardObj.imageUrl}
-					                  name={this.state.cardObj.name}
-					                  text={this.state.cardObj.text}
-					                  type={this.state.cardObj.type}
-					                  colors={this.state.cardObj.colors}
-					                  rarity={this.state.cardObj.rarity}
-					                  artist={this.state.cardObj.artist}
-					>
-					</CardSpecificComp>
+			<div>
+				<NavigationComp/>
+				<div className={'row'}>
+					<div className={'col-sm-12'}>
+						<CardSpecificComp image={this.state.cardObj.imageUrl}
+						                  name={this.state.cardObj.name}
+						                  text={this.state.cardObj.text}
+						                  type={this.state.cardObj.type}
+						                  colors={this.state.cardObj.colors}
+						                  rarity={this.state.cardObj.rarity}
+						                  artist={this.state.cardObj.artist}
+						>
+						</CardSpecificComp>
+					</div>
 				</div>
 			</div>
 		);
