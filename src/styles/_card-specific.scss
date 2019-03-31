@@ -1,0 +1,16 @@
+.cs-container {
+	max-width: 800px;
+	margin: 0 auto;
+
+	.cs__content {
+
+		&--heading {
+			font-size: 24px;
+			margin-bottom: $space;
+		}
+
+		&--text {
+			margin: ($space / 2) 0;
+		}
+	}
+}

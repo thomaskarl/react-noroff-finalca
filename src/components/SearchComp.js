@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Search extends React.Component {
+export default class SearchComp extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleCharacterSearchTerm = this.handleCharacterSearchTerm.bind(this);
@@ -13,13 +13,13 @@ export default class Search extends React.Component {
 
 	render() {
 		return (
-			<div className="search">
-				<h2>Search for a card</h2>
-				<input type="text"
-				       ref="searchTerm"
+			<div className={'search'}>
+				<h2 className={'font-weight-bold'}>Search for a card</h2>
+				<input type='text'
+				       ref='searchTerm'
 				       onChange={this.handleCharacterSearchTerm}
-				       className="form-control"
-				       placeholder="Ex. Aven"
+				       className='form-control'
+				       placeholder='Ex. Aven'
 				/>
 			</div>
 		);

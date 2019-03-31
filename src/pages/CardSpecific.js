@@ -12,26 +12,28 @@ export default class CardSpecific extends React.Component {
 	}
 
 	componentDidMount() {
-		fetch('https://api.magicthegathering.io/v1/cards')
+		fetch('https://api.magicthegathering.io/v1/cards/' + this.state.cardId)
 			.then(response => {
 				return response.json()
 			})
 			.then(result => {
 				this.setState({
-					cardObj: result.cards
-				});
-
-				console.log(this.state.cardId);
+					cardObj: result.card
+				})
 			});
 	}
 
 	render() {
 		return (
-			<div className="[ row ]">
-				<div className="[ col-sm-12 ]">
-					<CardSpecificComp image={this.state.cardObj.image}
+			<div className={'row'}>
+				<div className={'col-sm-12'}>
+					<CardSpecificComp image={this.state.cardObj.imageUrl}
 					                  name={this.state.cardObj.name}
-					                  id={this.state.cardObj.cardId}
+					                  text={this.state.cardObj.text}
+					                  type={this.state.cardObj.type}
+					                  colors={this.state.cardObj.colors}
+					                  rarity={this.state.cardObj.rarity}
+					                  artist={this.state.cardObj.artist}
 					>
 					</CardSpecificComp>
 				</div>

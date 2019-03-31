@@ -1,0 +1,31 @@
+.contact__content {
+	&--heading {
+		font-weight: bold;
+	}
+
+	&--text {
+		margin: $space 0;
+	}
+
+	.input__container {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		margin: $space 0;
+		flex-direction: column;
+		max-width: 300px;
+
+		input {
+			margin: ($space / 2) 0;
+		}
+	}
+}
+
+.contact__error {
+	width: unset;
+	display: inline-block;
+	text-decoration: underline;
+	font-weight: bold;
+	margin-top: 20px;
+	color: tomato;
+}

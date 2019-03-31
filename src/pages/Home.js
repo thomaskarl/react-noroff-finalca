@@ -1,6 +1,7 @@
 import React from 'react';
-import Card from './../components/Card';
-import Search from './../components/Search';
+import CardComp from './../components/CardComp';
+import SearchComp from './../components/SearchComp';
+import NavigationComp from "./../components/NavigationComp";
 
 export default class Home extends React.Component {
 	constructor(props) {
@@ -10,15 +11,11 @@ export default class Home extends React.Component {
 			cards: [],
 			cardsSearch: []
 		};
-		this.getData = this.getData.bind(this);
+		this.changeToSpecific = this.changeToSpecific.bind(this);
 		this.handleSearchTerm = this.handleSearchTerm.bind(this);
 	}
 
 	componentDidMount() {
-		this.getData();
-	}
-
-	getData() {
 		fetch('https://api.magicthegathering.io/v1/cards').then(response => {
 			return response.json()
 		})
@@ -29,6 +26,10 @@ export default class Home extends React.Component {
 					cardObj: result.cards
 				});
 			});
+	}
+
+	changeToSpecific(id) {
+		this.props.history.push("/card-specific/" + id);
 	}
 
 	handleSearchTerm(searchTerm) {
@@ -45,32 +46,39 @@ export default class Home extends React.Component {
 
 	createCards() {
 		this.state.cardObj.forEach((value, key) => {
-			this.state.cards.push(
-				<Card
-					name={value.name}
-					image={value.imageUrl}
-					manacost={value.manaCost}
-					type={value.type}
-					rarity={value.rarity}
-					text={value.text}
-					id={value.multiverseid}
-					key={key}
-				>
-				</Card>
-			);
+			if (value.imageUrl) {
+				this.state.cards.push(
+					<CardComp
+						changeToSpecific={this.changeToSpecific}
+						name={value.name}
+						image={value.imageUrl}
+						type={value.type}
+						rarity={value.rarity}
+						text={value.text}
+						id={value.id}
+						key={key}
+					>
+					</CardComp>
+				);
+			} else {
+				console.log('is how many cards that are not loaded because the imageurl is broken');
+			}
 		});
 	}
 
 	render() {
 		this.createCards();
 		return (
-			<div className="container-fluid">
-				<div className="col-sm-12">
-					<Search onSearchTerm={this.handleSearchTerm}></Search>
-				</div>
-				<div className="pers col-sm-12">
-					<div className="flip-wrapper">
-						{this.state.cards}
+			<div>
+				<NavigationComp/>
+				<div className={'container-fluid'}>
+					<div className={'col-sm-12'}>
+						<SearchComp onSearchTerm={this.handleSearchTerm}></SearchComp>
+					</div>
+					<div className={'pers col-sm-12'}>
+						<div className={'flip-wrapper'}>
+							{this.state.cards}
+						</div>
 					</div>
 				</div>
 			</div>

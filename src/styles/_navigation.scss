@@ -6,12 +6,14 @@ header {
 	justify-content: space-evenly;
 
 	.container-fluid {
+		max-width: 380px;
+		margin: 0 auto;
 		display: flex;
 		align-items: center;
 
 		.main-menu {
 			display: flex;
-			justify-content: space-evenly;
+			justify-content: space-between;
 		}
 	}
 

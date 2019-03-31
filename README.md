@@ -7,3 +7,7 @@ Course Assignment for JavaScript Frameworks course @ Noroff Front End Developmen
 #### 2. Install the dependencies by running `yarn install`.
 
 #### 3. Start the server: `yarn start`
+
+username: `thomas`
+
+password: `123`
